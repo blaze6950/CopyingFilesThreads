@@ -5,8 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CopyingFilesThreads"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="125" Width="480">
+    <DockPanel LastChildFill="True" Name="MainPanel">
         
-    </Grid>
+        <Grid DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="8*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">From:</TextBlock>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">To:</TextBlock>
+            
+            <TextBox Grid.Row="0" Grid.Column="1" Margin="5 15 5 15" Name="FromTextBox"></TextBox>
+
+            <TextBox Grid.Row="1" Grid.Column="1" Margin="5 15 5 15" Name="ToTextBox"></TextBox>
+            
+            <Button Grid.Column="2" Grid.Row="0" Margin="10" Click="ChooseFileButton_OnClick">File...</Button>
+
+            <Button Grid.Column="2" Grid.Row="1" Margin="10" Click="ChooseFileButton_OnClick">File...</Button>
+
+            <Button Grid.Column="3" Grid.Row="0" Grid.RowSpan="2" Margin="10" Click="CopyButton_OnClick">Copy</Button>
+
+        </Grid>
+        
+        <Grid Grid.Row="1" Name="CopyProgressPanel" Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4.5*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <ProgressBar Grid.Column="0" Margin="5 10 5 10" Name="CopyProgressBar"></ProgressBar>
+            
+            <Button Grid.Column="1" Margin="10" Name="PauseButton" Click="PauseButton_OnClick">Pause</Button>
+
+            <Button Grid.Column="2" Margin="10" Name="CancelButton" IsEnabled="False" Click="CancelButton_OnClick">Cancel</Button>
+            
+        </Grid>
+        
+    </DockPanel>
 </Window>
