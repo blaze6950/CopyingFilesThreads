@@ -1,13 +1,13 @@
-﻿namespace CopyingFilesThreads.Presenter
+﻿using System;
+
+namespace CopyingFilesThreads.Presenter
 {
     public interface IPresenterMainWindow
     {
         void CopyButtonClick();
 
-        void ChooseFileButtonClick();
+        void ChooseFileFromButtonClick(String path);
 
-        void PauseButtonClick();
-
-        void CancelButtonClick();
+        void ChooseFileToButtonClick(String path); 
     }
 }
